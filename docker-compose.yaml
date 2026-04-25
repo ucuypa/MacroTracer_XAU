@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  frontend:
+    build: ./marcotracer_xau-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+  backend:
+    build: ./macrotracer_xau-backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: market_tracker
+      MYSQL_DATABASE: password123
+    ports:
+      - "3306:3306"
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
