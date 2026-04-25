@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   frontend:
-    build: ././MacroTracer_XAU-frontend
+    build: ./MacroTracer_XAU-frontend
     ports:
       - "80:80"
     depends_on:
